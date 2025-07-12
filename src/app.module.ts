@@ -15,13 +15,13 @@ import { Todo } from './app.entity';
       url: process.env.DATABASE_URL,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       // For actual projects this is not safe, instead use db migrations
-      synchronize: true,   // Since this is an example project so keeping this true is fine
-      
+      synchronize: true, // Since this is an example project so keeping this true is fine
+
       ssl: {
-        rejectUnauthorized: false,  // Required for Neon DB
+        rejectUnauthorized: false, // Required for Neon DB
       },
     }),
-    TypeOrmModule.forFeature([Todo]),   // Register Todo entity
+    TypeOrmModule.forFeature([Todo]), // Register Todo entity
   ],
   controllers: [AppController],
   providers: [AppService],

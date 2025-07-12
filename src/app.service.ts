@@ -24,7 +24,7 @@ export class AppService {
   }
 
   async toggleComplete(id: number): Promise<Todo> {
-    const todo = await this.todoRepo.findOne({ where: {id} });
+    const todo = await this.todoRepo.findOne({ where: { id } });
 
     if (!todo) {
       throw new Error('Todo not fount');

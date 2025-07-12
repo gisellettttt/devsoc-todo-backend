@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('todos')
@@ -8,7 +18,10 @@ export class AppController {
   @Post()
   async addTodo(@Body() body: { desc: string }) {
     if (!body.desc || body.desc.trim() === '') {
-      throw new HttpException('The Todo desc cannot be empty', HttpStatus.BAD_REQUEST);
+      throw new HttpException(
+        'The Todo desc cannot be empty',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
     return await this.appService.addTodo(body.desc);
